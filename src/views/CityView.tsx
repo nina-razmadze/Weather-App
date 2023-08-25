@@ -1,11 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Language } from "../types/localestorage";
-
+import { Language } from "../types/localstorage";
 import WeatherBox from "../components/WeatherBox";
-import { randomIndex } from "../components/wallpaperArray";
-import { wallpaperArray } from "../components/wallpaperArray";
+import { randomIndex } from "../components/WallpaperArray";
+import { wallpaperArray } from "../components/WallpaperArray";
 import useWeeklyWeather from "../hooks/useWeeklyWeather";
 import { LocaleContext } from "../contexts/LocaleContext/LocaleContext";
 import { useContext } from "react";
@@ -66,7 +65,7 @@ export default function CityView() {
         setWeatherData(response.data);
         setIsLoading(false);
       } catch (err) {
-        setError(err);
+        setError(error);
       }
     };
     fetchData();
