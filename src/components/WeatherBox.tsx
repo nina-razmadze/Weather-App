@@ -1,11 +1,8 @@
-import React from "react";
-
 export default function WeatherBox({
-  day,
   temperature,
   description,
   translatedWeekday,
-}) {
+}: any) {
   return (
     <div className="box-content h-36 flex flex-col items-center justify-center w-32 p-6 border-2 m-[10px] backdrop-blur-md bg-white/30 rounded-lg">
       <h1 className="font-sans text-[21px] items-center tracking-wider">

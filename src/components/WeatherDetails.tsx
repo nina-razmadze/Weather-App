@@ -1,4 +1,3 @@
-import React from "react";
 import useCurrentWeather from "../hooks/useCurrentWeather";
 import useWeeklyWeather from "../hooks/useWeeklyWeather";
 import { FormattedMessage } from "react-intl";

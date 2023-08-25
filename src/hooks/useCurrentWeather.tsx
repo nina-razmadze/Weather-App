@@ -31,7 +31,7 @@ export default function useCurrentWeather() {
         setCurrentWeather(weatherResponse.data);
         setLoading(false);
       } catch (error) {
-        setError(error);
+        setError("error");
         setLoading(false);
       }
     };

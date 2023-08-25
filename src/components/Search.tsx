@@ -2,13 +2,13 @@ import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import "react-history-search/dist/index.css";
-import useSearchHistory from "../hooks/useSearchHistory";
 import { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 import { Link } from "react-router-dom";
 import { City } from "country-state-city";
 import { useState, useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import useSearchHistory from "../hooks/useSearchHistory";
 
 export default function Search() {
   const intl = useIntl();
@@ -37,10 +37,6 @@ export default function Search() {
       inputRef.current.focus();
       setInputFocused(true);
     }
-  };
-
-  const handleBlur = () => {
-    setInputFocused(false);
   };
 
   return (

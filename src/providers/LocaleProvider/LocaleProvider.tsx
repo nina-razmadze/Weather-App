@@ -1,6 +1,6 @@
-import React, { PropsWithChildren, useState, useEffect } from "react";
+import { PropsWithChildren, useState, useEffect } from "react";
 import { IntlProvider } from "react-intl";
-import { Language } from "../../types/localestorage";
+import { Language } from "../../types/localstorage";
 import { LocaleContext } from "../../contexts/LocaleContext/LocaleContext";
 
 import en from "./translations/en.json";
