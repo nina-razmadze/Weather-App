@@ -9,6 +9,7 @@ import useWeeklyWeather from "../hooks/useWeeklyWeather";
 import { LocaleContext } from "../contexts/LocaleContext/LocaleContext";
 import { useContext } from "react";
 import { FormattedMessage } from "react-intl";
+import "tailwindcss/tailwind.css";
 
 type TweatherData = {
   daily: any;
@@ -168,6 +169,23 @@ export default function CityView() {
             <h1 className="text-6xl font-serif tracking-wide	">
               {weatherData.name}
             </h1>
+            <FormattedMessage
+              id="date.format"
+              defaultMessage="{month} {weekday}, {day} {year}"
+              values={{
+                month: (
+                  <FormattedMessage
+                    id={`months.short.${currentData.getMonth()}`}
+                  />
+                ),
+                weekday: (
+                  <FormattedMessage id={`weekdays.${currentData.getDay()}`} />
+                ),
+
+                day: currentData.getDate(),
+                year: currentData.getFullYear(),
+              }}
+            />
             <h2 className="text-xl pt-[24px] "> </h2>
           </div>
           <div className="text-white  justify-between w-[80%] flex pt-[30px] items-center">
@@ -183,7 +201,7 @@ export default function CityView() {
                   <div className="pt-[45px]  items-center">
                     {weatherMain === "Clouds" ||
                       (weatherMain === "Clear" && (
-                        <div className="hidden 2xl:block 2xl:pl-[300px] 2xl:text-[130px] 2xl:mb-[100px] text-8xl">
+                        <div className="hidden 2xl:block 2xl:pl-[340px] 2xl:text-[130px] 2xl:mb-[100px] text-8xl">
                           <span role="img" aria-label="Cloud Emoji">
                             ☁️
                           </span>

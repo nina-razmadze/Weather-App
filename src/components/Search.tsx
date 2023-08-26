@@ -1,7 +1,6 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import "react-history-search/dist/index.css";
 import { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 import { Link } from "react-router-dom";
@@ -9,6 +8,7 @@ import { City } from "country-state-city";
 import { useState, useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import useSearchHistory from "../hooks/useSearchHistory";
+import "tailwindcss/tailwind.css";
 
 export default function Search() {
   const intl = useIntl();
@@ -17,8 +17,8 @@ export default function Search() {
   const navigate = useNavigate();
   const { search, setSearch } = useContext(SearchContext);
   const { addSearchTerm } = useSearchHistory();
-
   const [isInputFocused, setInputFocused] = useState(false);
+
   const handleInputChange = (e: any) => {
     e.preventDefault();
     setSearch(e.target.value);
@@ -64,7 +64,7 @@ export default function Search() {
               {isInputFocused && (
                 <div className="max-h-500px transition-max-height duration-300 relative overflow-y-scroll custom-scrollbar text-xl">
                   <ul className="pt-[15px]">
-                    {City.getAllCities()
+                    {City.getAllCities([])
                       .slice(0, citiesToShow)
                       .map((city) => (
                         <Link key={city.name} to={`/${city.name}`}>

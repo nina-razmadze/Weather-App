@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import SideBar from "../components/SideBar";
 import useCurrentWeather from "../hooks/useCurrentWeather";
 import { getCityNameFromCoordinates } from "../utils/geocoding";
-import { wallpaperArray } from "../components/wallpaperArray";
-import { randomIndex } from "../components/wallpaperArray";
+import { wallpaperArray } from "../components/WallpaperArray";
+import { randomIndex } from "../components/WallpaperArray";
 import { FormattedMessage } from "react-intl";
-import { Language } from "../types/localestorage";
+import { Language } from "../types/localstorage";
 import { LocaleContext } from "../contexts/LocaleContext/LocaleContext";
+import "tailwindcss/tailwind.css";
 
 function HomeView() {
-  const { loading, error, currentWeather } = useCurrentWeather();
+  const { loading, currentWeather } = useCurrentWeather();
   const [toggle, setToggle] = useState(false);
   const [cityName, setCityName] = useState("");
   const { locale, setLocale } = useContext(LocaleContext);
@@ -150,6 +151,7 @@ function HomeView() {
                   weekday: (
                     <FormattedMessage id={`weekdays.${currentData.getDay()}`} />
                   ),
+
                   day: currentData.getDate(),
                   year: currentData.getFullYear(),
                 }}

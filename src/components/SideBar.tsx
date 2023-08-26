@@ -1,5 +1,6 @@
 import Search from "./Search";
 import WeatherDetails from "./WeatherDetails";
+import "tailwindcss/tailwind.css";
 
 type SideBarProps = {
   toggle: boolean;

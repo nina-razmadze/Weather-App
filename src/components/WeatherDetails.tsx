@@ -1,6 +1,7 @@
 import useCurrentWeather from "../hooks/useCurrentWeather";
 import useWeeklyWeather from "../hooks/useWeeklyWeather";
 import { FormattedMessage } from "react-intl";
+import "tailwindcss/tailwind.css";
 
 type WeatherDetailsProps = {
   toggle: boolean;
@@ -18,7 +19,6 @@ export default function WeatherDetails({
   const CurrentWeatherHumidity = currentWeather?.main.humidity;
   const CurrentWeatherWindSpeed = currentWeather?.wind.speed;
   const CurrentWeatherWindDeg = currentWeather?.wind.deg;
-
   const handleChange = (celsius: any) => {
     if (toggle) {
       const fahrenheit = (celsius * 9) / 5 + 32;
@@ -30,7 +30,7 @@ export default function WeatherDetails({
 
   return (
     <div>
-      <dl className="max-w-md text-white text-base	pt-[20px]  tracking-wider pl-[6px] font-mono dark:text-white dark:divide-gray-700 ">
+      <dl className="max-w-md  text-white text-base	pt-[20px]  tracking-wider pl-[6px] font-mono dark:text-white dark:divide-gray-700 ">
         <div className="flex flex-col pb-[24px]">
           <dd className="text-lg font-semibold font-serif">
             <FormattedMessage id="Wheather Details" />
@@ -91,62 +91,70 @@ export default function WeatherDetails({
           </dd>
         </div>
         {weeklyWeather?.list.map((dayWeather: any, index: any) => {
-          if (index === new Date().getDay()) {
-            return null;
+          const currentDayIndex = new Date().getDay();
+          const dayOfWeek = new Date(dayWeather[0].dt * 1000).getDay();
+
+          const dayDifference = (dayOfWeek - currentDayIndex + 7) % 7;
+
+          if (dayDifference > 0 && dayDifference <= 5) {
+            const CurrentWeatherMaxTemp = dayWeather[0].main.temp_max;
+            let celsiusTemperature = "";
+
+            if (typeof CurrentWeatherMaxTemp === "number") {
+              celsiusTemperature = (CurrentWeatherMaxTemp - 273.15).toFixed(2);
+            }
+
+            const weekdayMessageId = `weekday.${dayOfWeek}`;
+            const translatedWeekday = (
+              <FormattedMessage id={weekdayMessageId} />
+            );
+
+            return (
+              <div
+                className="flex py-1 items-center justify-between w-[430px] pb-[24px]"
+                key={index}
+              >
+                <div className="text-xl font-serif w-[30%]">
+                  {translatedWeekday}
+                </div>
+
+                <div className="text-lg font-semibold pr-[30px] w-[30%]">
+                  {handleChange(celsiusTemperature)}
+                </div>
+
+                <div className="text-lg  font-semibold pr-[30px] w-[30%]">
+                  {dayWeather[0].weather[0].description === "few clouds" ||
+                  dayWeather[0].weather[0].description === "broken clouds" ||
+                  dayWeather[0].weather[0].description === "scattered clouds" ||
+                  dayWeather[0].weather[0].description === "overcast clouds" ? (
+                    <div className="text-[60px] pt-[10px]">☁️</div>
+                  ) : dayWeather[0].weather[0].description === "light rain" ||
+                    dayWeather[0].weather[0].description === "moderate rain" ? (
+                    <div className="text-[60px] pt-[10px]">🌧️</div>
+                  ) : dayWeather[0].weather[0].description ===
+                    "Thunderstorm" ? (
+                    <div className="text-[60px] pt-[10px]">⛈️</div>
+                  ) : dayWeather[0].weather[0].description === "clear sky" ? (
+                    <div className="text-[60px] pt-[10px]">⛅️</div>
+                  ) : dayWeather[0].weather[0].description === "Rain" ? (
+                    <div className="text-[60px] pt-[10px]">🌧</div>
+                  ) : dayWeather[0].weather[0].description === "Sunny" ? (
+                    <div className="text-[60px] pt-[10px]">🌤</div>
+                  ) : dayWeather[0].weather[0].description === "snow" ? (
+                    <div className="text-[60px] pt-[10px]">❄️</div>
+                  ) : dayWeather[0].weather[0].description === "mist" ? (
+                    <div className="text-[60px] pt-[10px]">🌫️</div>
+                  ) : dayWeather[0].weather[0].description === "fog" ? (
+                    <div className="text-[60px] pt-[10px]">🌁</div>
+                  ) : dayWeather[0].weather[0].description === "Tornado" ? (
+                    <div className="text-[60px] pt-[10px]">🌪️</div>
+                  ) : null}
+                </div>
+              </div>
+            );
           }
-          const CurrentWeatherMaxTemp = dayWeather[0].main.temp_max;
-          let celsiusTemperature = "";
-          if (typeof CurrentWeatherMaxTemp === "number") {
-            celsiusTemperature = (CurrentWeatherMaxTemp - 273.15).toFixed(2);
-          }
 
-          const weekdayMessageId = `weekday.${new Date(
-            dayWeather[0].dt * 1000
-          ).getDay()}`;
-          const translatedWeekday = <FormattedMessage id={weekdayMessageId} />;
-
-          return (
-            <div
-              className="flex py-1 items-center justify-between w-[430px] pb-[24px]"
-              key={index}
-            >
-              <div className="text-xl font-serif w-[30%]">
-                {translatedWeekday}
-              </div>
-
-              <div className="text-lg font-semibold pr-[30px] w-[30%]">
-                {handleChange(celsiusTemperature)}
-              </div>
-
-              <div className="text-lg  font-semibold pr-[30px] w-[30%]">
-                {dayWeather[0].weather[0].description === "few clouds" ||
-                dayWeather[0].weather[0].description === "broken clouds" ||
-                dayWeather[0].weather[0].description === "scattered clouds" ||
-                dayWeather[0].weather[0].description === "overcast clouds" ? (
-                  <div className="text-[60px] pt-[10px]">☁️</div>
-                ) : dayWeather[0].weather[0].description === "light rain" ||
-                  dayWeather[0].weather[0].description === "moderate rain" ? (
-                  <div className="text-[60px] pt-[10px]">🌧️</div>
-                ) : dayWeather[0].weather[0].description === "Thunderstorm" ? (
-                  <div className="text-[60px] pt-[10px]">⛈️</div>
-                ) : dayWeather[0].weather[0].description === "clear sky" ? (
-                  <div className="text-[60px] pt-[10px]">⛅️</div>
-                ) : dayWeather[0].weather[0].description === "Rain" ? (
-                  <div className="text-[60px] pt-[10px]">🌧</div>
-                ) : dayWeather[0].weather[0].description === "Sunny" ? (
-                  <div className="text-[60px] pt-[10px]">🌤</div>
-                ) : dayWeather[0].weather[0].description === "snow" ? (
-                  <div className="text-[60px] pt-[10px]">❄️</div>
-                ) : dayWeather[0].weather[0].description === "mist" ? (
-                  <div className="text-[60px] pt-[10px]">🌫️</div>
-                ) : dayWeather[0].weather[0].description === "fog" ? (
-                  <div className="text-[60px] pt-[10px]">🌁</div>
-                ) : dayWeather[0].weather[0].description === "Tornado" ? (
-                  <div className="text-[60px] pt-[10px]">🌪️</div>
-                ) : null}
-              </div>
-            </div>
-          );
+          return null;
         })}
       </dl>
     </div>
