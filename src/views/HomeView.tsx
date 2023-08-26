@@ -91,7 +91,7 @@ function HomeView() {
           </div>
 
           <select
-            className="absolute bg-purple-400 bottom-[90.5%] left-[10%] border border-white rounded text-white px-[7px] py-[5px] "
+            className="absolute bg-purple-400 bottom-[90.5%] left-[10%] border border-white rounded text-white px-[7px] py-[5px] md:ml-[70px] lg:ml-[60px] 2xl:ml-[40px]"
             onChange={(e) => {
               localStorage.setItem("locale", e.target.value);
               setLocale(e.target.value as Language);

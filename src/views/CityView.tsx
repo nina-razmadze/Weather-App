@@ -152,7 +152,7 @@ export default function CityView() {
               </label>
             </div>
             <select
-              className="absolute bg-purple-400 bottom-[90.5%] right-[13%] border border-white rounded text-white px-[7px] py-[5px] "
+              className="absolute bg-purple-400 bottom-[90.5%] right-[13%] border border-white rounded text-white px-[7px] md:mr-[40px] py-[5px] "
               onChange={(e) => {
                 localStorage.setItem("locale", e.target.value);
                 setLocale(e.target.value as Language);
@@ -191,13 +191,13 @@ export default function CityView() {
           <div className="text-white  justify-between w-[80%] flex pt-[30px] items-center">
             <div className="flex flex-col ">
               <h1
-                className="pr-[35px] 2xl:text-[100px]  md:absolute md:top-[150px] md:text-[35px]  md:hidden lg:block lg:text-[65px]
+                className="pr-[35px] 2xl:text-[65px]   md:absolute md:top-[150px] md:text-[35px]  md:hidden lg:block lg:text-[65px]  
                 font-serif "
               >
                 <FormattedMessage id={description} />
               </h1>
 
-              <p className="2xl:text-[50px] lg:text-[40px] lg:pl-[6px] 2xl:pl-[15px] font-serif tracking-wide md:hidden lg:block  flex justify-center items-center  h-[100px]	">
+              <p className="2xl:text-[50px] lg:text-[90px] lg:pl-[6px] 2xl:pl-[15px] font-serif tracking-wide md:hidden lg:block  flex justify-center items-center  h-[100px] 	">
                 {weatherMain === "Clouds" ||
                   (weatherMain === "Clear" && (
                     <div className="hidden 2xl:block 2xl:pl-[150px] 2xl:pt-[40px] 2xl:text-[130px] 2xl:mb-[100px] text-8xl lg:block lg:pl-[100px] lg:pt-[20px]">
@@ -212,14 +212,41 @@ export default function CityView() {
                 {weatherMain === "Haze" && (
                   <div className="pr-[40px] pt-[20px] text-3xl">🌫️</div>
                 )}
-                {weatherMain === "Rain" && <div className="text-3xl">🌧️</div>}
-                {weatherMain === "Sunny" && <div className="text-3xl">☀️</div>}
-                {weatherMain === "Snow" && <div className="text-3xl">❄️</div>}
-                {weatherMain === "Clouds" && <div className="text-3xl">☁️</div>}
-                {weatherMain === "Mist" && <div className="text-3xl">🌫️</div>}
-                {weatherMain === "Fog" && <div className="text-3xl">🌁</div>}
+                {weatherMain === "Rain" && (
+                  <div
+                    className="
+                text-[10rem] ml-[90px]"
+                  >
+                    🌧️
+                  </div>
+                )}
+                {weatherMain === "Sunny" && (
+                  <div
+                    className="
+                text-[10rem] ml-[90px]"
+                  >
+                    ☀️
+                  </div>
+                )}
+                {weatherMain === "Snow" && (
+                  <div
+                    className="
+                text-[10rem] ml-[90px]"
+                  >
+                    ❄️
+                  </div>
+                )}
+                {weatherMain === "Clouds" && (
+                  <div className="text-[10rem] ml-[90px]">☁️</div>
+                )}
+                {weatherMain === "Mist" && (
+                  <div className="ttext-[10rem] ml-[90px]">🌫️</div>
+                )}
+                {weatherMain === "Fog" && (
+                  <div className="text-[10rem] ml-[90px]">🌁</div>
+                )}
                 {weatherMain === "Tornado" && (
-                  <div className="text-3xl">🌪️</div>
+                  <div className="text-[10rem] ml-[90px]">🌪️</div>
                 )}
               </p>
             </div>

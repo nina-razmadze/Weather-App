@@ -58,18 +58,15 @@ export default function Search() {
             />
 
             <div className="text-white ">
-              <h1 className="text-[21px] font-serif pb-[8px]">
-                <FormattedMessage id="City Names" />
-              </h1>
               {isInputFocused && (
                 <div className="max-h-500px transition-max-height duration-300 relative overflow-y-scroll custom-scrollbar text-xl">
-                  <ul className="pt-[15px]">
+                  <ul>
                     {Country.getAllCountries()
                       .slice(0, citiesToShow)
-                      .map((city) => (
-                        <Link key={city.name} to={`/${city.name}`}>
+                      .map((country) => (
+                        <Link key={country.name} to={`/${country.name}`}>
                           <li className="pb-[16px] font-serif text-[19px]">
-                            {city.name}
+                            {country.name}
                           </li>
                         </Link>
                       ))}

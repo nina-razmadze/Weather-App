@@ -38,13 +38,13 @@
   "weekday.saturday": "Saturday",
   "weekday.sunday": "Sunday",
 
+  "weekday.0": "Sunday",
   "weekday.1": "Monday",
   "weekday.2": "Tuesday",
   "weekday.3": "Wednesday",
   "weekday.4": "Thursday",
   "weekday.5": "Friday",
   "weekday.6": "Saturday",
-  "weekday.7": "Sunday",
 
   "City Names": "City Names",
 
@@ -61,7 +61,6 @@
   "months.short.10": "Nov",
   "months.short.11": "Dec",
 
-  "weekdays.0": "Sun",
   "weekdays.1": "Mon",
   "weekdays.2": "Tue",
   "weekdays.3": "Wed",

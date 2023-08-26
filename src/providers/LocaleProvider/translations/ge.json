@@ -38,12 +38,13 @@
   "weekday.saturday": "შაბათი",
   "weekday.sunday": "კვირა",
 
-  "weekday.0": "ორშაბათი",
-  "weekday.1": "სამშაბათი",
-  "weekday.2": "ოთხშაბათი",
-  "weekday.3": "ხუთშაბათი",
+  "weekday.0": "კვირა",
+  "weekday.1": "ორშაბათი",
+  "weekday.2": "სამშაბათი",
+  "weekday.3": "ოთხშაბათი",
+  "weekday.4": "ხუთშაბათი",
   "weekday.5": "პარასკევი",
-  "weekday.6": "კვირა",
+  "weekday.6": "შაბათ",
 
   "City Names": "ქალაქის სახელები",
 

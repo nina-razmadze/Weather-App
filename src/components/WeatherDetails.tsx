@@ -19,6 +19,7 @@ export default function WeatherDetails({
   const CurrentWeatherHumidity = currentWeather?.main.humidity;
   const CurrentWeatherWindSpeed = currentWeather?.wind.speed;
   const CurrentWeatherWindDeg = currentWeather?.wind.deg;
+
   const handleChange = (celsius: any) => {
     if (toggle) {
       const fahrenheit = (celsius * 9) / 5 + 32;
@@ -38,14 +39,15 @@ export default function WeatherDetails({
         </div>
 
         <div className="flex pt-[24px] justify-between">
-          <dd className="text-xl  font-serif">
-            <FormattedMessage id="description" />
+          <dd className="text-lg font-semibold">
+            <dd className="text-lg font-semibold">
+              {/* <FormattedMessage id={CurrentWeatherDesc} />ƒdes */}
+            </dd>
           </dd>
-          <dd className="text-lg font-semibold">{CurrentWeatherDesc}</dd>
         </div>
 
         <div className="flex justify-center">
-          <dd className="text-xl  justify-center m-auto items-center font-semibold font-serif pt-[24px]">
+          <dd className="text-xl  justify-center m-auto items-center font-semibold  pt-[24px]">
             <FormattedMessage id="temperature" />
           </dd>
         </div>
