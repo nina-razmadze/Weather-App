@@ -189,56 +189,38 @@ export default function CityView() {
             <h2 className="text-xl pt-[24px] "> </h2>
           </div>
           <div className="text-white  justify-between w-[80%] flex pt-[30px] items-center">
-            <div className="felx flex-col ">
-              <div className="flex  ">
-                <h1
-                  className="pr-[35px] 2xl:text-[100px]  md:absolute md:top-[150px] md:text-[35px]  md:hidden lg:block lg:text-[65px]
+            <div className="flex flex-col ">
+              <h1
+                className="pr-[35px] 2xl:text-[100px]  md:absolute md:top-[150px] md:text-[35px]  md:hidden lg:block lg:text-[65px]
                 font-serif "
-                >
-                  <FormattedMessage id={weatherMain} />
-                </h1>
-                <div className="flex justify-center items-center  h-[100px]">
-                  <div className="pt-[45px]  items-center">
-                    {weatherMain === "Clouds" ||
-                      (weatherMain === "Clear" && (
-                        <div className="hidden 2xl:block 2xl:pl-[340px] 2xl:text-[130px] 2xl:mb-[100px] text-8xl">
-                          <span role="img" aria-label="Cloud Emoji">
-                            ☁️
-                          </span>
-                        </div>
-                      ))}
-                    {weatherMain === "Thunderstorm" && (
-                      <div className="pr-[40px] pt-[20px] text-3xl">⛈️</div>
-                    )}
-                    {weatherMain === "Haze" && (
-                      <div className="pr-[40px] pt-[20px] text-3xl">🌫️</div>
-                    )}
-                    {weatherMain === "Rain" && (
-                      <div className="text-3xl">🌧️</div>
-                    )}
-                    {weatherMain === "Sunny" && (
-                      <div className="text-3xl">☀️</div>
-                    )}
-                    {weatherMain === "Snow" && (
-                      <div className="text-3xl">❄️</div>
-                    )}
-                    {weatherMain === "Clouds" && (
-                      <div className="text-3xl">☁️</div>
-                    )}
-                    {weatherMain === "Mist" && (
-                      <div className="text-3xl">🌫️</div>
-                    )}
-                    {weatherMain === "Fog" && (
-                      <div className="text-3xl">🌁</div>
-                    )}
-                    {weatherMain === "Tornado" && (
-                      <div className="text-3xl">🌪️</div>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <p className="2xl:text-[50px] lg:text-[40px] lg:pl-[6px] 2xl:pl-[15px] font-serif tracking-wide md:hidden lg:block 	">
+              >
                 <FormattedMessage id={description} />
+              </h1>
+
+              <p className="2xl:text-[50px] lg:text-[40px] lg:pl-[6px] 2xl:pl-[15px] font-serif tracking-wide md:hidden lg:block  flex justify-center items-center  h-[100px]	">
+                {weatherMain === "Clouds" ||
+                  (weatherMain === "Clear" && (
+                    <div className="hidden 2xl:block 2xl:pl-[150px] 2xl:pt-[40px] 2xl:text-[130px] 2xl:mb-[100px] text-8xl lg:block lg:pl-[100px] lg:pt-[20px]">
+                      <span role="img" aria-label="Cloud Emoji">
+                        ☁️
+                      </span>
+                    </div>
+                  ))}
+                {weatherMain === "Thunderstorm" && (
+                  <div className="pr-[40px] pt-[20px] text-3xl">⛈️</div>
+                )}
+                {weatherMain === "Haze" && (
+                  <div className="pr-[40px] pt-[20px] text-3xl">🌫️</div>
+                )}
+                {weatherMain === "Rain" && <div className="text-3xl">🌧️</div>}
+                {weatherMain === "Sunny" && <div className="text-3xl">☀️</div>}
+                {weatherMain === "Snow" && <div className="text-3xl">❄️</div>}
+                {weatherMain === "Clouds" && <div className="text-3xl">☁️</div>}
+                {weatherMain === "Mist" && <div className="text-3xl">🌫️</div>}
+                {weatherMain === "Fog" && <div className="text-3xl">🌁</div>}
+                {weatherMain === "Tornado" && (
+                  <div className="text-3xl">🌪️</div>
+                )}
               </p>
             </div>
 
@@ -285,33 +267,41 @@ export default function CityView() {
             </div>
           </div>
 
-          <div className="text-white lg:overflow-x-auto lg:w-[660px] 2xl:w-[1200px] pt-[60px] pb-[24px] relative flex justify-between items-center  md:overflow-x-auto md:w-[500px]">
+          <div className="text-white  lg:w-[900px] 2xl:w-[900px] pt-[60px] pb-[24px] relative flex justify-between items-center  md:overflow-x-auto md:w-[500px]">
             {weeklyWeather?.list.map((dayWeather: any, index: any) => {
-              const CurrentWeatherMaxTemp = dayWeather[0].main.temp_max;
-              let celsiusTemperature = "";
-              if (typeof CurrentWeatherMaxTemp === "number") {
-                celsiusTemperature = (CurrentWeatherMaxTemp - 273.15).toFixed(
-                  2
+              const currentDayIndex = new Date().getDay();
+              const dayOfWeek = new Date(dayWeather[0].dt * 1000).getDay();
+
+              const dayDifference = (dayOfWeek - currentDayIndex + 7) % 7;
+
+              if (dayDifference > 0 && dayDifference <= 5) {
+                const CurrentWeatherMaxTemp = dayWeather[0].main.temp_max;
+                let celsiusTemperature = "";
+
+                if (typeof CurrentWeatherMaxTemp === "number") {
+                  celsiusTemperature = (CurrentWeatherMaxTemp - 273.15).toFixed(
+                    2
+                  );
+                }
+
+                const weekdayMessageId = `weekday.${dayOfWeek}`;
+                const translatedWeekday = (
+                  <FormattedMessage id={weekdayMessageId} />
+                );
+
+                return (
+                  <WeatherBox
+                    key={index}
+                    day={new Date(dayWeather[0].dt * 1000).toLocaleDateString(
+                      "en-US"
+                    )}
+                    translatedWeekday={translatedWeekday}
+                    temperature={handleChange(celsiusTemperature)}
+                    description={dayWeather[0].weather[0].description}
+                  />
                 );
               }
-              const weekdayMessageId = `weekday.${new Date(
-                dayWeather[0].dt * 1000
-              ).getDay()}`;
-              const translatedWeekday = (
-                <FormattedMessage id={weekdayMessageId} />
-              );
-
-              return (
-                <WeatherBox
-                  key={index}
-                  day={new Date(dayWeather[0].dt * 1000).toLocaleDateString(
-                    "en-US"
-                  )}
-                  translatedWeekday={translatedWeekday}
-                  temperature={handleChange(celsiusTemperature)}
-                  description={dayWeather[0].weather[0].description}
-                />
-              );
+              return null;
             })}
           </div>
         </div>
