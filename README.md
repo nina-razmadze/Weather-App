@@ -23,7 +23,7 @@ You can see a GIF of my application below.
 
 - Real-time weather data sourced from reliable meteorological sources.
 - Instantly view the current weather conditions, including temperature, humidity, and wind speed.
-- Detailed 7-day forecast to help you plan your week effectively.
+- Detailed 5-day forecast to help you plan your week effectively.
 - Search for weather updates in any city or region around the globe.
 - Responsive design for seamless use across desktop and mobile devices.
 
