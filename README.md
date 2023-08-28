@@ -31,6 +31,9 @@ You can see a GIF of my application below.
 
 - React
 - Typescript
+- Npm
+- Tailwind
+  
 
 <h1 style="font-size:larger;" >What I Learned 📚</h1>
 
