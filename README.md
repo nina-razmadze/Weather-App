@@ -1,8 +1,6 @@
 🌤 Weather App
 
-![Uploading Screenshot 2023-08-28 at 07.38.46.png…]()
-
-
+![Screenshot of my App](https://github.com/nina-razmadze/Weather-App/assets/123087063/10f6ebfa-0668-4bcf-a4a9-f2aa24cf1b90)
 
 
 Currently, two official plugins are available:
