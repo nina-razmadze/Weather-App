@@ -1,5 +1,5 @@
-<div align='center' >
-## 🌤 Weather App
+<div align='center' > 
+   <h1 style="font-size:larger;" >🌤 Weather App</h1>
 </div>
 
 ![Screenshot of my App](https://github.com/nina-razmadze/Weather-App/assets/123087063/10f6ebfa-0668-4bcf-a4a9-f2aa24cf1b90)
