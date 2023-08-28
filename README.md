@@ -5,7 +5,7 @@
 ![Screenshot of my App](https://github.com/nina-razmadze/Weather-App/assets/123087063/10f6ebfa-0668-4bcf-a4a9-f2aa24cf1b90)
 
 
-##Short Description 📋
+#Short Description 📋
 
 Weather App is a intuitive weather application designed to provide you with up-to-the-minute weather updates at a glance. With its clean user interface, you can quickly check the current weather conditions, temperature, humidity, and a 5-day forecast for any location worldwide.
 
