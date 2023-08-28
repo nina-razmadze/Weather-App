@@ -35,7 +35,6 @@ You can see a GIF of my application below.
 - Tailwind
   
 
-<h1 style="font-size:larger;" >What I Learned 📚</h1>
 
 
 
