@@ -5,26 +5,29 @@
 ![Screenshot of my App](https://github.com/nina-razmadze/Weather-App/assets/123087063/10f6ebfa-0668-4bcf-a4a9-f2aa24cf1b90)
 
 
-Currently, two official plugins are available:
+##Short Description 📋
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Weather App is a intuitive weather application designed to provide you with up-to-the-minute weather updates at a glance. With its clean user interface, you can quickly check the current weather conditions, temperature, humidity, and a 5-day forecast for any location worldwide.
 
-## Expanding the ESLint configuration
+##Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+🖥 
 
-- Configure the top-level `parserOptions` property like this:
+##Showcase
+You can see a GIF of my application below.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+##Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Real-time weather data sourced from reliable meteorological sources.
+- Instantly view the current weather conditions, including temperature, humidity, and wind speed.
+- Detailed 7-day forecast to help you plan your week effectively.
+- Search for weather updates in any city or region around the globe.
+- Responsive design for seamless use across desktop and mobile devices.
+
+##Technologies Used
+React
+Typescript
+
+##What I Learned?
+
+
