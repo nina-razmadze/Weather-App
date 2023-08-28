@@ -28,6 +28,7 @@ You can see a GIF of my application below.
 
 
 <h1 style="font-size:larger;" >Technologies Used 🖥</h1>
+
 - React
 - Typescript
 
