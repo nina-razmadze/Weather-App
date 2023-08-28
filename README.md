@@ -1,6 +1,9 @@
-# React + TypeScript + Vite
+🌤 Weather App
 
-Weather App
+![Uploading Screenshot 2023-08-28 at 07.38.46.png…]()
+
+
+
 
 Currently, two official plugins are available:
 
