@@ -8,7 +8,7 @@
 
  <h1 style="font-size:larger;" >Short Description 📋</h1>
 
-Weather App is a intuitive weather application designed to provide you with up-to-the-minute weather updates at a glance. With its clean user interface, you can quickly check the current weather conditions, temperature, humidity, and a 5-day forecast for any location worldwide.
+Weather App is an intuitive weather application designed to provide you with up-to-the-minute weather updates at a glance. With its clean user interface, you can quickly check the current weather conditions, temperature, humidity, and a 5-day forecast for any location worldwide.
 
 <h1 style="font-size:larger;" >Demo</h1>
 <a href="https://taupe-khapse-ba1a54.netlify.app/"> 🖥 Live Demo</a>
